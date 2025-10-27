@@ -1,0 +1,17 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+# Useful for local Netlify dev (optional)
+[dev]
+  command = "npm run develop"
+
+# Redirect everything to index for client-side routing (safe fallback)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Optional: set environment for production builds
+[context.production.environment]
+  NODE_ENV = "production"
