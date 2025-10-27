@@ -1,0 +1,29 @@
+{
+  "name": "koyasumi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "koyasumi-portfolio",
+  "author": "anisa",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^3.1.1",
+    "gatsby": "^5.14.6",
+    "gatsby-plugin-image": "^3.15.0",
+    "gatsby-plugin-mdx": "^5.15.0",
+    "gatsby-plugin-sharp": "^5.15.0",
+    "gatsby-plugin-sitemap": "^6.15.0",
+    "gatsby-source-filesystem": "^5.15.0",
+    "gatsby-transformer-sharp": "^5.15.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
