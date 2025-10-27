@@ -1,17 +1,19 @@
 backend:
   name: git-gateway
-  branch: main 
+  branch: main
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+# Store uploaded media directly in the project source so Gatsby can process them
+media_folder: "src/images/illustrations"
+public_folder: "/images/illustrations"
 
 collections:
   - name: "illustrations"
     label: "Illustrations"
-    folder: "src/images/illustrations"
+    folder: "content/illustrations"
     create: true
     slug: "{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Alt Text", name: "alt", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }

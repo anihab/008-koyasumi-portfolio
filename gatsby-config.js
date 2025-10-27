@@ -6,27 +6,52 @@ module.exports = {
     title: `Koyasumi Portfolio`,
     description: 'Koyasumi personal artist portfolio website.',
     author: 'Koyasumi',
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
-    "gatsby-plugin-image",
-    "gatsby-plugin-sitemap",
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        "name": "images",
-        "path": "./src/images/"
+        name: `images`,
+        path: `${__dirname}/src/images/`,
       },
-      __key: "images"
-    }, {
-      resolve: 'gatsby-source-filesystem',
+      __key: `images`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        "name": "pages",
-        "path": "./src/pages/"
+        name: `uploads`,
+        path: `${__dirname}/static/uploads/`,
       },
-      __key: "pages"
-    }]
+      __key: `uploads`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+      __key: `pages`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: `${__dirname}/content/`,
+      },
+      __key: `content`,
+    },
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+  ],
 };
