@@ -4,7 +4,7 @@
 module.exports = {
   siteMetadata: {
     title: `Koyasumi Portfolio`,
-    description: 'Koyasumi personal artist portfolio website showcasing projects and artworks.',
+    description: 'Koyasumi personal artist portfolio website.',
     author: 'Koyasumi',
     siteUrl: `https://www.yourdomain.tld`
   },

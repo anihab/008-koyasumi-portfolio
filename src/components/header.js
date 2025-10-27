@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,30 +17,44 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
+
   return (
     <header className={scrolled ? "scrolled" : ""}>
       <div className="header-inner">
         {/* Center Logo */}
         <div className={`logo-default ${scrolled ? "hidden" : ""}`}>
-          <img src="/images/top-hat-logo.png" alt="Top Hat Logo" height="48" />
+          <img src="/images/icon.png" alt="Tiger Logo" height="48" />
         </div>
 
         {/* Scrolled Logo */}
         <div className={`logo-scrolled ${scrolled ? "visible" : ""}`}>
-          <img src="/images/eve-logo.png" alt="Eve Logo" height="24" />
+          <img src="" alt="Koyasumi" height="24" />
         </div>
 
+        {/* Hamburger button (visible on mobile) */}
+        <button
+          type="button"
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
         {/* Navigation */}
-        <nav>
-          <Link to="/news">NEWS</Link>
-          <Link to="/media">MEDIA</Link>
-          <Link to="/live">LIVE</Link>
-          <Link to="/event">EVENT</Link>
-          <Link to="/profile">PROFILE</Link>
-          <Link to="/discography">DISCOGRAPHY</Link>
-          <Link to="/goods">GOODS</Link>
-          <Link to="/download">DOWNLOAD</Link>
-          <Link to="/contact">CONTACT</Link>
+        <nav id="main-nav" className={`${menuOpen ? "open" : ""}`}>
+          <Link to="/" onClick={() => setMenuOpen(false)}>ILLUSTRATION</Link>
+          <Link to="/storyboard" onClick={() => setMenuOpen(false)}>STORYBOARD</Link>
+          <Link to="/concept" onClick={() => setMenuOpen(false)}>CONCEPT</Link>
+          <Link to="/misc" onClick={() => setMenuOpen(false)}>MISC</Link>
+          <Link to="/profile" onClick={() => setMenuOpen(false)}>PROFILE</Link>
         </nav>
       </div>
     </header>
